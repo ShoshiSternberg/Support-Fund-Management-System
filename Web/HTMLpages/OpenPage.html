@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSSSheets/HomePage.css" rel="stylesheet" />
+    <link href="../CSSSheets/AllProject.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <script src="../JavaScriptFiles/NewSupport.js"></script>
+    <script src="../JavaScriptFiles/AllProtocols.js"></script>
+    <script src="../JavaScriptFiles/AllSupports.js"></script>
+    <link href="../CSSSheets/OpenPage.css" rel="stylesheet" />
+    <style>
+       
+        #load {
+            position: absolute;
+            width: 600px;
+            height: 36px;
+            left: 50%;
+            top: 40%;
+            margin-left: -300px;
+            overflow: visible;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+
+            #load div {
+                position: absolute;
+                width: 20px;
+                height: 36px;
+                opacity: 0;
+                font-family: Helvetica, Arial, sans-serif;
+                animation: move 2s linear infinite;
+                -o-animation: move 2s linear infinite;
+                -moz-animation: move 2s linear infinite;
+                -webkit-animation: move 2s linear infinite;
+                transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                color: #161bb2;
+            }
+
+                #load div:nth-child(2) {
+                    animation-delay: 0.2s;
+                    -o-animation-delay: 0.2s;
+                    -moz-animation-delay: 0.2s;
+                    -webkit-animation-delay: 0.2s;
+                }
+
+                #load div:nth-child(3) {
+                    animation-delay: 0.4s;
+                    -o-animation-delay: 0.4s;
+                    -webkit-animation-delay: 0.4s;
+                    -webkit-animation-delay: 0.4s;
+                }
+
+                #load div:nth-child(4) {
+                    animation-delay: 0.6s;
+                    -o-animation-delay: 0.6s;
+                    -moz-animation-delay: 0.6s;
+                    -webkit-animation-delay: 0.6s;
+                }
+
+                #load div:nth-child(5) {
+                    animation-delay: 0.8s;
+                    -o-animation-delay: 0.8s;
+                    -moz-animation-delay: 0.8s;
+                    -webkit-animation-delay: 0.8s;
+                }
+
+                #load div:nth-child(6) {
+                    animation-delay: 1s;
+                    -o-animation-delay: 1s;
+                    -moz-animation-delay: 1s;
+                    -webkit-animation-delay: 1s;
+                }
+
+                #load div:nth-child(7) {
+                    animation-delay: 1.2s;
+                    -o-animation-delay: 1.2s;
+                    -moz-animation-delay: 1.2s;
+                    -webkit-animation-delay: 1.2s;
+                }
+
+        @keyframes move {
+            0% {
+                left: 0;
+                opacity: 0;
+            }
+
+            35% {
+                left: 41%;
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            65% {
+                left: 59%;
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                -moz-transform: rotate(-180deg);
+                -webkit-transform: rotate(-180deg);
+                -o-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes move {
+            0% {
+                left: 0;
+                opacity: 0;
+            }
+
+            35% {
+                left: 41%;
+                -moz-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            65% {
+                left: 59%;
+                -moz-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                -moz-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes move {
+            0% {
+                left: 0;
+                opacity: 0;
+            }
+
+            35% {
+                left: 41%;
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            65% {
+                left: 59%;
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                -webkit-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes move {
+            0% {
+                left: 0;
+                opacity: 0;
+            }
+
+            35% {
+                left: 41%;
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            65% {
+                left: 59%;
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                -o-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+                opacity: 0;
+            }
+        }
+    </style>
+    <title>כניסה</title>
+</head>
+<body dir="rtl" onload="EmptySessionStorage()">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav bar">
+                <li class="nav-item">
+                    <a class="nav-link link1" href="AllSupporteds.html">
+                        <img class="editIcon" src="../images/people.png" /> נתמכים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link1" href="AllSupports.html">
+                        <img class="editIcon" src="../images/social-care.png" /> תמיכות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link1" href="AllProtocols.html">
+                        <img class="editIcon" src="../images/document.png" /> פרוטוקולים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link1" href="AllReports.html">
+
+                        <img class="editIcon" src="../images/report.png" /> דיווחים
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link link1" href="Management.html" id="here">
+                        <img class="editIcon" src="../images/administration.png" /> ניהול
+                    </a>
+                </li>
+
+            </ul>
+            <div class="d-flex"><a class="d-flex " id="user" href="OpenPage.html" title="יציאה">משתמש כללי</a><img src="../images/image002.png" id="logo" /></div>
+        </div>
+    </nav>
+
+
+    <div id="mainForm" class="main">
+        <p class="sign" align="center">התחברות</p>
+        <form class="form1" action="#" onsubmit="enterFunction();return false">
+            <input class="un" id="userName" type="text" placeholder="שם משתמש">
+            <input class="pass" id="userPassword" type="password" placeholder="סיסמה"><br />
+            <div id="load" style="display:none">
+                <div>מ</div>
+                <div>ת</div>
+                <div>ח</div>
+                <div>ב</div>
+                <div>ר</div>              
+            </div>
+            <button tyep="submit" class="submit">כניסה</button><br /><br />
+            <p id="Validations"></p>
+        </form>
+    </div>
+</body>
+</html>

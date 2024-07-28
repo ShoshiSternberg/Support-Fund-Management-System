@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSSSheets/AllProject.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/NewSupport.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="../CSSSheets/HomePage.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <script src="../JavaScriptFiles/Reports.js"></script>
+    <title>דיווחים | דיווח חדש</title>
+</head>
+<body dir="rtl" onload="Load_Reports(),fillUser()">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav bar">
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupporteds.html">
+                        <img class="editIcon" src="../images/people.png" /> נתמכים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupports.html">
+                        <img class="editIcon" src="../images/social-care.png" /> תמיכות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllProtocols.html">
+                        <img class="editIcon" src="../images/document.png" /> פרוטוקולים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllReports.html" id="here">
+
+                        <img class="editIcon" src="../images/report.png" /> דיווחים
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Management.html" >
+                        <img class="editIcon" src="../images/administration.png" /> ניהול
+                    </a>
+                </li>
+
+            </ul>
+            <div class="d-flex"><a class="d-flex " id="user" href="OpenPage.html" title="יציאה">משתמש כללי</a><img src="../images/image002.png" id="logo" /></div>
+        </div>
+    </nav>
+    <div class="body">
+
+
+        <h5>דיווח חדש</h5><br />
+        <div class="input-group mb-3 ">
+            <br />
+            <span class="input-group-text">פרטי דיווח</span>
+            <select class="form-control" id="SupportedName"><option value="0">שם נתמך</option></select>
+
+            <input type="date" class="form-control" id="date">
+            <select class="form-control" id="responsible"><option value="0">אחראי מדווח</option></select>
+
+        </div>
+
+        <div class="input-group mb-3 details1">
+            <br />
+            <span class="input-group-text">פירוט</span>
+            <textarea name="Details"></textarea>
+
+        </div>
+        <br /><br />
+        <h5 id="validations" class="validations">לא מילאת את כל השדות</h5><br />
+        <button class="button" onclick="AddReport()">הוספה</button>
+    </div>
+</body>
+</html>

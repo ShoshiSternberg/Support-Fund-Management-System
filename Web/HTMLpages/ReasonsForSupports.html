@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSSSheets/HomePage.css" rel="stylesheet" />
+    <link href="../CSSSheets/AllProject.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <script src="../JavaScriptFiles/NewSupport.js"></script>
+    <script src="../JavaScriptFiles/AllProtocols.js"></script>
+    <script src="../JavaScriptFiles/NewProtocol.js"></script>
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <script src="../JavaScriptFiles/ReasonsForSupports.js"></script>
+    <title>סיבות תמיכה | כל הסיבות</title>
+</head>
+<body dir="rtl" onload="LoadReasons(),fillUser()">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav bar">
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupporteds.html">
+                        <img class="editIcon" src="../images/people.png" /> נתמכים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupports.html">
+                        <img class="editIcon" src="../images/social-care.png" /> תמיכות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllProtocols.html">
+                        <img class="editIcon" src="../images/document.png" /> פרוטוקולים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllReports.html">
+
+                        <img class="editIcon" src="../images/report.png" /> דיווחים
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Management.html" id="here">
+                        <img class="editIcon" src="../images/administration.png" /> ניהול
+                    </a>
+                </li>
+
+            </ul>
+            <div class="d-flex"><a class="d-flex " id="user" href="OpenPage.html" title="יציאה">משתמש כללי</a><img src="../images/image002.png" id="logo" /></div>
+        </div>
+    </nav>
+    <nav class="try navbar navbar-expand-sm ">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="AllResponsibles.html" id="here">
+
+                        <img class="editIcon" src="../images/boss.png" />אחראיים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllProducts.html">
+
+                        <img class="editIcon" src="../images/features.png" />מוצרים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="TransactionsOnCoffer.html">
+
+                        <img class="editIcon" src="../images/balance-sheet.png" />יתרות ותנועות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ReasonsForSupports.html">
+
+                        <img class="editIcon" src="../images/balance-sheet.png" />סיבות תמיכה
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body">
+        <h4 id="headline">
+            כל הסיבות<a href="NewReason.html" class="button">הוסף סיבה</a>
+
+        </h4><br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>סיבת תמיכה</th>
+                    <th>ניסוח להדפסת הפרוטוקול</th>
+                </tr>
+            </thead>
+            <thead>
+
+        </table>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSSSheets/AllProject.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/NewSupport.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <link href="../CSSSheets/HomePage.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <script src="../JavaScriptFiles/AllSupports.js"></script>
+    <title>תמיכות | תמיכה חדשה</title>
+</head>
+<body dir="rtl" onload="Load(),fillUser()">
+    <!--תפריט עליון-->
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav bar">
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupporteds.html">
+                        <img class="editIcon" src="../images/people.png" /> נתמכים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupports.html" id="here">
+                        <img class="editIcon" src="../images/social-care.png" /> תמיכות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllProtocols.html">
+                        <img class="editIcon" src="../images/document.png" /> פרוטוקולים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllReports.html">
+
+                        <img class="editIcon" src="../images/report.png" /> דיווחים
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Management.html" >
+                        <img class="editIcon" src="../images/administration.png" /> ניהול
+                    </a>
+                </li>
+
+            </ul>
+            <div class="d-flex"><a class="d-flex " id="user" href="OpenPage.html" title="יציאה">משתמש כללי</a><img src="../images/image002.png" id="logo" /></div>
+        </div>
+    </nav>
+    <!--גוף תמיכה חדשה-->
+    <div class="body">
+        <h5 id="headline">תמיכה חדשה</h5><br />
+
+        <div class="input-group mb-3">
+            <br />
+            <span class="input-group-text">פרטי נתמך</span>
+
+            <select class="form-control" list="suppName" name="suppName" id="suppName"><option value="0">שם נתמך</option></select>
+            <select class="form-control" list="suppReasons" name="suppReasons" id="suppReason" onchange="SortProducts()"><option value="0">סיבת תמיכה</option></select>
+
+        </div>
+        <div class="input-group mb-3">
+            <br />
+            <span class="input-group-text">פרטי תמיכה</span>
+
+            <input type="date" class="form-control" id="date">
+            <span class="form-control" id="sum" style="text-align:right">סכום</span>
+
+        </div>
+
+        <div class="input-group mb-3">
+            <br />
+            <span class="input-group-text">גורמים</span>
+            <select class="form-control" name="responsibles" id="responsible" placeholder="אחראי1"><option value="0">אחראי</option></select>
+
+            <input type="text" class="form-control" placeholder="מפנה" id="referrer">
+        </div>
+        <div class="input-group mb-3">
+            <br />
+            <span class="input-group-text">פירוט</span>
+            <textarea name="Details" id="datails"></textarea>
+
+        </div>
+        <div id="productsTable">
+            <table id="productsAddTable" class="table table-bordered">
+                <caption align="top">מוצרים</caption>
+                <thead>
+                    <tr>
+
+                        <th>מוצר</th>
+                        <th>מקום קנייה</th>
+                        <th>כמות</th>
+                        <th>מחיר ליחידה</th>
+                        <th>אמצעי תשלום</th>
+                        <th>מס' צ'ק /קופון</th>
+                        <th>התקבלה חשבונית</th>
+                        <th>סה"כ</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="productsAddTableBody">
+                    <tr class="trs">
+                        <td><select list="prodName" name="prodName" id="prodName1" onchange="fillShops(1)"><option value="0"></option></select></td>
+                        <td><select list="shop" name="shop" id="shop1" onchange="fillSupportWays(1)"><option value="0"></option></select></td>
+                        <td><input type="number" value="1" placeholder="כמות" id="qty1" onchange="calcPrice(1)" /></td>
+                        <td><span id="priceToItem1"></span></td>
+                        <td><select list="Pway" name="pWay" id="pWay1"><option value="0"></option></select></td>
+                        <td><input type="tel" id="numChek1" data-required="true" /></td>
+                        <td><input type="checkbox" id="invoice1" /></td>
+                        <td><span id="Total1"></span></td>
+                        <td id="last">
+                            <button title="עוד מוצר" class="editButton" onclick="addRow()">
+                                <img class="editIcon" src="../images/icons8-addition-plus-symbol-to-add-new-objects-24.png" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h5 id="validations" class="validations">לא מילאת את כל השדות</h5><br />
+        <button class="button" id="addSupport"  onclick="InsertSupport()">הוספה</button>
+        <button onclick='function hi(){window.location.href="NewProtocol.html"};hi()' id="addProtocol" disabled="true"class="button">הוסף פרוטוקול</button>
+    </div>
+</body>
+</html>

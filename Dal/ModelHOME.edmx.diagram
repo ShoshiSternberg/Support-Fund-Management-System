@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7510355d36042c7b1a66102af64f098" Name="Diagram1">
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.AnnualSummary" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Layers" Width="1.5" PointX="1.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Products" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.ProductsToReasons" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.ProductsToSupports" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Protocols" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Providers" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.ReasonsForSupports" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Reports" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Responsibles" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Statuses" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Supporteds" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.Supports" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.SupportWay" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.TransactionsOnCoffer" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.TypesOfExpensesAndIncome" Width="1.5" PointX="7.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InstitutionalSupportFundModel.TypesOfProtocols" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_TransactionsOnCoffer_AnnualSummary" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Supporters_Layers" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Products_Providers" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_ProductsToReasons_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_ProductsToSupports_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_ProductsToReasons_ReasonsForSupports" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_ProductsToSupports_Supports" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_ProductsToSupports_SupportWay" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Protocols_ReasonsForSupports" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Protocols_Supporters" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Protocols_Supports" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Protocols_Supports1" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Protocols_TypesOfProtocols" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Supports_ReasonsForSupports" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Reports_Gabays" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Reports_Supporters" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Supports_Gabays" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Supporters_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_Supports_Supporteds" ManuallyRouted="false" />
+        <AssociationConnector Association="InstitutionalSupportFundModel.FK_TransactionsOnCoffer_TypesOfExpensesAndIncome" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

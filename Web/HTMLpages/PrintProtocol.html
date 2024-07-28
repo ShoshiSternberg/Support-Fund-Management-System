@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="../CSSSheets/PrintProtocol.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <script src="../JavaScriptFiles/PrintProtocol.js"></script>
+    <script src="../JavaScriptFiles/NewProtocol.js"></script>
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <title></title>
+</head>
+<body onload="load()" dir="rtl">
+
+    <div id="form">
+        <button id="aTag" onclick="printf()">print</button>
+        <h3>פרוטוקול</h3>
+        <h5>פרוטוקול מספר <span id="numProtocol">6</span></h5>
+        <p>
+            מישיבת ועד העמותה שהתכנסה ביום <span id="dateMeeting"></span><br />
+            השתתפו:<br /><span id="participants"></span><br />
+            סדר היום: אישור בקשות תמיכה<br />
+            הוחלט לאשר את בקשת התמיכה של <br /><span id="suppName">אדם ראובני</span> מ.ז. <span id="IdSupp">123456789</span><br />
+            פירוט:<br /> <span id="reasonSupport"></span><br />ע"ס <span id="sum"> ₪ 680.00 </span>
+            <span id="product">                
+
+
+            </span>
+
+            <span id="comments">אין הערה</span><br /><br /><br />
+            <div id="Signatures">
+                <!--<span class="participantsSign" id="participants1Sign">מנחם מנדל פוגל</span><span class="revach">&emsp;&emsp;&emsp;</span>
+                <span class="participantsSign" id="participants2Sign">מנחם רובינסקי</span>-->
+            </div>
+        </p>
+    </div>
+</body>
+</html>

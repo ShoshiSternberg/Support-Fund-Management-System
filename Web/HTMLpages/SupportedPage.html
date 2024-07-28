@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="../JavaScriptFiles/AllSupporteds.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSSSheets/AllProject.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <link href="../CSSSheets/HomePage.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/NewSupported.js"></script>
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <script src="../JavaScriptFiles/Reports.js"></script>
+    <script src="../JavaScriptFiles/AllSupports.js"></script>
+
+    <title>נתמכים | כרטיס נתמך</title>
+</head>
+<body onload="GetSupportedByID(),fillUser()" dir="rtl">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav bar">
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupporteds.html" id="here">
+                        <img class="editIcon" src="../images/people.png" /> נתמכים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupports.html">
+                        <img class="editIcon" src="../images/social-care.png" /> תמיכות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllProtocols.html">
+                        <img class="editIcon" src="../images/document.png" /> פרוטוקולים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllReports.html">
+
+                        <img class="editIcon" src="../images/report.png" /> דיווחים
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Management.html" >
+                        <img class="editIcon" src="../images/administration.png" /> ניהול
+                    </a>
+                </li>
+
+            </ul>
+            <div class="d-flex"><a class="d-flex " id="user" href="OpenPage.html" title="יציאה">משתמש כללי</a><img src="../images/image002.png" id="logo" /></div>
+        </div>
+    </nav>
+    <div class="body">
+        <h4>כרטיס נתמך</h4>
+        <div id="PrivateDetails">
+            <table>
+                <tr class="trDetails">
+                    <td class="tdDetails">שם פרטי: <span class="details" id="FirstName"> </span></td>
+                    <td class="tdDetails">ועד: <span class="details" id="Layer"></span> </td>
+                    <td rowspan="2"> <img src="../images/תמונת פרופיל דוגמא.JPG" id="gambarPicture" /><br /></td>
+
+                </tr>
+                <tr class="trDetails">
+                    <td class="tdDetails">שם משפחה: <span class="details" id="LastName"> </span></td>
+                    <td class="tdDetails">פלאפון: <span class="details" id="Telephone"></span></td>
+
+                </tr>
+                <tr class="trDetails">
+                    <td class="tdDetails">מס' זהות: <span class="details" id="Identity"></span></td>
+                    <td class="tdDetails">סטטוס: <span class="details" id="Status"></span></td>
+                    <td><button class="button " id="UpdateButton" onclick="UpdateSupported()">עדכן פרטים</button></td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+            <br /><br />
+        </div>
+        <div id="Supports" class="tables" dir="rtl">
+        </div>
+        <br />
+        <table id="finalSupportForSupported">
+            <tr>
+
+                <td class="details">
+                    סכום:  <span id="sum"> </span> ש"ח
+                </td>
+                <td class="details">
+                    סך הכל תמיכות:  <span id="count"></span>
+                </td>
+            </tr>
+        </table>
+        <div id="Reports" class="tables" dir="rtl">
+        </div>
+
+
+    </div>
+</body>
+</html>

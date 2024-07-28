@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="../JavaScriptFiles/AllSupporteds.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../CSSSheets/AllProject.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="../CSSSheets/HomePage.css" rel="stylesheet" />
+    <script src="../JavaScriptFiles/AllSupports.js"></script>
+    <script src="../JavaScriptFiles/NewSupport.js"></script>
+    <script src="../JavaScriptFiles/axiosWithoutInthernet.js"></script>
+    <script src="../JavaScriptFiles/HomePage.js"></script>
+    <title>תמיכות | כרטיס תמיכה</title>
+</head>
+<body dir="rtl" onload="fillSupportPage(),fillUser()">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav bar">
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupporteds.html">
+                        <img class="editIcon" src="../images/people.png" /> נתמכים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllSupports.html" id="here">
+                        <img class="editIcon" src="../images/social-care.png" /> תמיכות
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllProtocols.html">
+                        <img class="editIcon" src="../images/document.png" /> פרוטוקולים
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AllReports.html">
+
+                        <img class="editIcon" src="../images/report.png" /> דיווחים
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Management.html" >
+                        <img class="editIcon" src="../images/administration.png" /> ניהול
+                    </a>
+                </li>
+
+            </ul>
+            <div class="d-flex"><a class="d-flex " id="user" href="OpenPage.html" title="יציאה">משתמש כללי</a><img src="../images/image002.png" id="logo" /></div>
+        </div>
+    </nav>
+    <div class="body">
+        <h4>כרטיס תמיכה<button class="button" href="NewSupport.html" onclick="UpdateSupport()">עדכן פרטים</button></h4>
+        <div id="PrivateDetails">
+            <table>
+                <tr class="trDetails">
+                    <td class="tdDetails">נתמך : <span class="details" id="SupportedName"></span></td>
+                    <td class="tdDetails"> תאריך תמיכה : <span class="details" id="date">12/8/22</span></td>
+                    <td class="tdDetails">
+                        פירוט:<span class="details" id="details"></span>
+                    </td>
+                </tr>
+                <tr class="trDetails">
+                    <td class="tdDetails">ת.ז : <span class="details" id="supportedIdentity"></span></td>
+                    <td class="tdDetails"> אחראי:<span class="details" id="responsible"></span></td>
+                </tr>
+                <tr class="trDetails">
+                    <td class="tdDetails">סיבת תמיכה:<span class="details" id="reason"></span><br /></td>
+                    <td class="tdDetails">מפנה:<span class="details" id="referrer"></span>
+                </tr>
+            </table>
+
+
+
+
+
+        </div>
+        <div id="products"></div>
+
+        <span class="details" style="text-align:left">סך הכל:  <br /><span id="total"></span></span><br />
+        <button class="button" onclick="OpenProtcolFromSupport()">פרוטוקול</button>
+
+    </div>
+
+</body>
+</html>

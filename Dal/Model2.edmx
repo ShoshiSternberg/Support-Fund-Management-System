@@ -1,0 +1,1226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InstitutionalSupportFundModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnnualSummary">
+          <Key>
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="OpeningBalance" Type="money" />
+          <Property Name="CurrentWhiteBalance" Type="money" />
+          <Property Name="CurrentBlackBalance" Type="money" />
+          <Property Name="TerminationBalance" Type="money" />
+        </EntityType>
+        <EntityType Name="Layers">
+          <Key>
+            <PropertyRef Name="LayerID" />
+          </Key>
+          <Property Name="LayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Layer" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdName" Type="nvarchar" MaxLength="50" />
+          <Property Name="providerID" Type="int" />
+          <Property Name="PricePerUnit" Type="money" />
+          <Property Name="SupportWayID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductsToReasons">
+          <Key>
+            <PropertyRef Name="ProdToReasonID" />
+          </Key>
+          <Property Name="ProdToReasonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdID" Type="int" />
+          <Property Name="ReasonID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductsToSupports">
+          <Key>
+            <PropertyRef Name="ProdsToSupportsID" />
+          </Key>
+          <Property Name="ProdsToSupportsID" Type="int" Nullable="false" />
+          <Property Name="SupportID" Type="int" />
+          <Property Name="ProdID" Type="int" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="NumCheckOrCupon" Type="int" />
+          <Property Name="InvoiceReceived" Type="bit" />
+        </EntityType>
+        <EntityType Name="Protocols">
+          <Key>
+            <PropertyRef Name="ProtocolID" />
+          </Key>
+          <Property Name="ProtocolID" Type="int" Nullable="false" />
+          <Property Name="ProtocolType" Type="int" />
+          <Property Name="SupportedToProtocolID" Type="int" />
+          <Property Name="IssueDate" Type="date" />
+          <Property Name="ReasonForProtocol" Type="int" />
+          <Property Name="SupportID" Type="int" />
+        </EntityType>
+        <EntityType Name="Providers">
+          <Key>
+            <PropertyRef Name="ProviderID" />
+          </Key>
+          <Property Name="ProviderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProviderName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReasonsForSupports">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReasonForSupports" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupportedID" Type="int" />
+          <Property Name="ReportDate" Type="date" />
+          <Property Name="Details" Type="nvarchar" MaxLength="50" />
+          <Property Name="GabayID" Type="int" />
+        </EntityType>
+        <EntityType Name="Responsibles">
+          <Key>
+            <PropertyRef Name="ResponsibleID" />
+          </Key>
+          <Property Name="ResponsibleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResponsibleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AllowingAccess" Type="bit" />
+          <Property Name="LoginPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponsibleTelephone" Type="varchar" MaxLength="10" />
+          <Property Name="ResponsibleEmail" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Supporteds">
+          <Key>
+            <PropertyRef Name="SupportedID" />
+          </Key>
+          <Property Name="SupportedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LayerID" Type="int" />
+          <Property Name="SupTelephone" Type="varchar" MaxLength="50" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="SupportedIdentity" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Supports">
+          <Key>
+            <PropertyRef Name="SupportID" />
+          </Key>
+          <Property Name="SupportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupportedID" Type="int" />
+          <Property Name="SuppDate" Type="date" />
+          <Property Name="ReasonID" Type="int" />
+          <Property Name="SumOfSupport" Type="money" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="ResponsibleID" Type="int" />
+          <Property Name="Referrer" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SupportWay">
+          <Key>
+            <PropertyRef Name="SupportWayID" />
+          </Key>
+          <Property Name="SupportWayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentWay" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoteToProtocol" Type="nvarchar" MaxLength="50" />
+          <Property Name="BlackOrWhite" Type="bit" />
+        </EntityType>
+        <EntityType Name="TransactionsOnCoffer">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="TransactionDate" Type="date" />
+          <Property Name="TypeOfExpensesAndIncome" Type="int" />
+          <Property Name="TransactionSum" Type="money" />
+          <Property Name="SupportID" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="BlackOrWhite" Type="bit" />
+        </EntityType>
+        <EntityType Name="TypesOfExpensesAndIncome">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpensesOrIncome" Type="bit" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TypesOfProtocols">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Products_Providers">
+          <End Role="Providers" Type="Self.Providers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers">
+              <PropertyRef Name="ProviderID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToReasons_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductsToReasons" Type="Self.ProductsToReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProdID" />
+            </Principal>
+            <Dependent Role="ProductsToReasons">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToReasons_ReasonsForSupports">
+          <End Role="ReasonsForSupports" Type="Self.ReasonsForSupports" Multiplicity="0..1" />
+          <End Role="ProductsToReasons" Type="Self.ProductsToReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonsForSupports">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="ProductsToReasons">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToSupports_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductsToSupports" Type="Self.ProductsToSupports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProdID" />
+            </Principal>
+            <Dependent Role="ProductsToSupports">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToSupports_Supports">
+          <End Role="Supports" Type="Self.Supports" Multiplicity="0..1" />
+          <End Role="ProductsToSupports" Type="Self.ProductsToSupports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supports">
+              <PropertyRef Name="SupportID" />
+            </Principal>
+            <Dependent Role="ProductsToSupports">
+              <PropertyRef Name="SupportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_ReasonsForSupports">
+          <End Role="ReasonsForSupports" Type="Self.ReasonsForSupports" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonsForSupports">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="ReasonForProtocol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_Supporters">
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporteds">
+              <PropertyRef Name="SupportedID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="SupportedToProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_Supports">
+          <End Role="Supports" Type="Self.Supports" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supports">
+              <PropertyRef Name="SupportID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="ProtocolType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_Supports1">
+          <End Role="Supports" Type="Self.Supports" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supports">
+              <PropertyRef Name="SupportID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="SupportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_TypesOfProtocols">
+          <End Role="TypesOfProtocols" Type="Self.TypesOfProtocols" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfProtocols">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="ProtocolType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Gabays">
+          <End Role="Responsibles" Type="Self.Responsibles" Multiplicity="0..1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsibles">
+              <PropertyRef Name="ResponsibleID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="GabayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Supporters">
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="0..1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporteds">
+              <PropertyRef Name="SupportedID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="SupportedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporters_Layers">
+          <End Role="Layers" Type="Self.Layers" Multiplicity="0..1" />
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Layers">
+              <PropertyRef Name="LayerID" />
+            </Principal>
+            <Dependent Role="Supporteds">
+              <PropertyRef Name="LayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporters_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Supporteds">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supports_Gabays">
+          <End Role="Responsibles" Type="Self.Responsibles" Multiplicity="0..1" />
+          <End Role="Supports" Type="Self.Supports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsibles">
+              <PropertyRef Name="ResponsibleID" />
+            </Principal>
+            <Dependent Role="Supports">
+              <PropertyRef Name="ResponsibleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supports_ReasonsForSupports">
+          <End Role="ReasonsForSupports" Type="Self.ReasonsForSupports" Multiplicity="0..1" />
+          <End Role="Supports" Type="Self.Supports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonsForSupports">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="Supports">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supports_Supporteds">
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="0..1" />
+          <End Role="Supports" Type="Self.Supports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporteds">
+              <PropertyRef Name="SupportedID" />
+            </Principal>
+            <Dependent Role="Supports">
+              <PropertyRef Name="SupportedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionsOnCoffer_AnnualSummary">
+          <End Role="AnnualSummary" Type="Self.AnnualSummary" Multiplicity="0..1" />
+          <End Role="TransactionsOnCoffer" Type="Self.TransactionsOnCoffer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnnualSummary">
+              <PropertyRef Name="Year" />
+            </Principal>
+            <Dependent Role="TransactionsOnCoffer">
+              <PropertyRef Name="Year" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionsOnCoffer_TypesOfExpensesAndIncome">
+          <End Role="TypesOfExpensesAndIncome" Type="Self.TypesOfExpensesAndIncome" Multiplicity="0..1" />
+          <End Role="TransactionsOnCoffer" Type="Self.TransactionsOnCoffer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfExpensesAndIncome">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="TransactionsOnCoffer">
+              <PropertyRef Name="TypeOfExpensesAndIncome" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InstitutionalSupportFundModelStoreContainer">
+          <EntitySet Name="AnnualSummary" EntityType="Self.AnnualSummary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Layers" EntityType="Self.Layers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsToReasons" EntityType="Self.ProductsToReasons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductsToSupports" EntityType="Self.ProductsToSupports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Protocols" EntityType="Self.Protocols" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Providers" EntityType="Self.Providers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReasonsForSupports" EntityType="Self.ReasonsForSupports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Responsibles" EntityType="Self.Responsibles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supporteds" EntityType="Self.Supporteds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supports" EntityType="Self.Supports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupportWay" EntityType="Self.SupportWay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionsOnCoffer" EntityType="Self.TransactionsOnCoffer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesOfExpensesAndIncome" EntityType="Self.TypesOfExpensesAndIncome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesOfProtocols" EntityType="Self.TypesOfProtocols" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Products_Providers" Association="Self.FK_Products_Providers">
+            <End Role="Providers" EntitySet="Providers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToReasons_Products" Association="Self.FK_ProductsToReasons_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductsToReasons" EntitySet="ProductsToReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToReasons_ReasonsForSupports" Association="Self.FK_ProductsToReasons_ReasonsForSupports">
+            <End Role="ReasonsForSupports" EntitySet="ReasonsForSupports" />
+            <End Role="ProductsToReasons" EntitySet="ProductsToReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToSupports_Products" Association="Self.FK_ProductsToSupports_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductsToSupports" EntitySet="ProductsToSupports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToSupports_Supports" Association="Self.FK_ProductsToSupports_Supports">
+            <End Role="Supports" EntitySet="Supports" />
+            <End Role="ProductsToSupports" EntitySet="ProductsToSupports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_ReasonsForSupports" Association="Self.FK_Protocols_ReasonsForSupports">
+            <End Role="ReasonsForSupports" EntitySet="ReasonsForSupports" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_Supporters" Association="Self.FK_Protocols_Supporters">
+            <End Role="Supporteds" EntitySet="Supporteds" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_Supports" Association="Self.FK_Protocols_Supports">
+            <End Role="Supports" EntitySet="Supports" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_Supports1" Association="Self.FK_Protocols_Supports1">
+            <End Role="Supports" EntitySet="Supports" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_TypesOfProtocols" Association="Self.FK_Protocols_TypesOfProtocols">
+            <End Role="TypesOfProtocols" EntitySet="TypesOfProtocols" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Gabays" Association="Self.FK_Reports_Gabays">
+            <End Role="Responsibles" EntitySet="Responsibles" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Supporters" Association="Self.FK_Reports_Supporters">
+            <End Role="Supporteds" EntitySet="Supporteds" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporters_Layers" Association="Self.FK_Supporters_Layers">
+            <End Role="Layers" EntitySet="Layers" />
+            <End Role="Supporteds" EntitySet="Supporteds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporters_Statuses" Association="Self.FK_Supporters_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Supporteds" EntitySet="Supporteds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supports_Gabays" Association="Self.FK_Supports_Gabays">
+            <End Role="Responsibles" EntitySet="Responsibles" />
+            <End Role="Supports" EntitySet="Supports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supports_ReasonsForSupports" Association="Self.FK_Supports_ReasonsForSupports">
+            <End Role="ReasonsForSupports" EntitySet="ReasonsForSupports" />
+            <End Role="Supports" EntitySet="Supports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supports_Supporteds" Association="Self.FK_Supports_Supporteds">
+            <End Role="Supporteds" EntitySet="Supporteds" />
+            <End Role="Supports" EntitySet="Supports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionsOnCoffer_AnnualSummary" Association="Self.FK_TransactionsOnCoffer_AnnualSummary">
+            <End Role="AnnualSummary" EntitySet="AnnualSummary" />
+            <End Role="TransactionsOnCoffer" EntitySet="TransactionsOnCoffer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionsOnCoffer_TypesOfExpensesAndIncome" Association="Self.FK_TransactionsOnCoffer_TypesOfExpensesAndIncome">
+            <End Role="TypesOfExpensesAndIncome" EntitySet="TypesOfExpensesAndIncome" />
+            <End Role="TransactionsOnCoffer" EntitySet="TransactionsOnCoffer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InstitutionalSupportFundModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnnualSummary">
+          <Key>
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="OpeningBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrentWhiteBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrentBlackBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TerminationBalance" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="TransactionsOnCoffer" Relationship="Self.FK_TransactionsOnCoffer_AnnualSummary" FromRole="AnnualSummary" ToRole="TransactionsOnCoffer" />
+        </EntityType>
+        <EntityType Name="Layers">
+          <Key>
+            <PropertyRef Name="LayerID" />
+          </Key>
+          <Property Name="LayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Layer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supporteds" Relationship="Self.FK_Supporters_Layers" FromRole="Layers" ToRole="Supporteds" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="providerID" Type="Int32" />
+          <Property Name="PricePerUnit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SupportWayID" Type="Int32" />
+          <NavigationProperty Name="Providers" Relationship="Self.FK_Products_Providers" FromRole="Products" ToRole="Providers" />
+          <NavigationProperty Name="ProductsToReasons" Relationship="Self.FK_ProductsToReasons_Products" FromRole="Products" ToRole="ProductsToReasons" />
+          <NavigationProperty Name="ProductsToSupports" Relationship="Self.FK_ProductsToSupports_Products" FromRole="Products" ToRole="ProductsToSupports" />
+        </EntityType>
+        <EntityType Name="ProductsToReasons">
+          <Key>
+            <PropertyRef Name="ProdToReasonID" />
+          </Key>
+          <Property Name="ProdToReasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdID" Type="Int32" />
+          <Property Name="ReasonID" Type="Int32" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductsToReasons_Products" FromRole="ProductsToReasons" ToRole="Products" />
+          <NavigationProperty Name="ReasonsForSupports" Relationship="Self.FK_ProductsToReasons_ReasonsForSupports" FromRole="ProductsToReasons" ToRole="ReasonsForSupports" />
+        </EntityType>
+        <EntityType Name="ProductsToSupports">
+          <Key>
+            <PropertyRef Name="ProdsToSupportsID" />
+          </Key>
+          <Property Name="ProdsToSupportsID" Type="Int32" Nullable="false" />
+          <Property Name="SupportID" Type="Int32" />
+          <Property Name="ProdID" Type="Int32" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="NumCheckOrCupon" Type="Int32" />
+          <Property Name="InvoiceReceived" Type="Boolean" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_ProductsToSupports_Products" FromRole="ProductsToSupports" ToRole="Products" />
+          <NavigationProperty Name="Supports" Relationship="Self.FK_ProductsToSupports_Supports" FromRole="ProductsToSupports" ToRole="Supports" />
+        </EntityType>
+        <EntityType Name="Protocols">
+          <Key>
+            <PropertyRef Name="ProtocolID" />
+          </Key>
+          <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+          <Property Name="ProtocolType" Type="Int32" />
+          <Property Name="SupportedToProtocolID" Type="Int32" />
+          <Property Name="IssueDate" Type="DateTime" Precision="0" />
+          <Property Name="ReasonForProtocol" Type="Int32" />
+          <Property Name="SupportID" Type="Int32" />
+          <NavigationProperty Name="ReasonsForSupports" Relationship="Self.FK_Protocols_ReasonsForSupports" FromRole="Protocols" ToRole="ReasonsForSupports" />
+          <NavigationProperty Name="Supporteds" Relationship="Self.FK_Protocols_Supporters" FromRole="Protocols" ToRole="Supporteds" />
+          <NavigationProperty Name="Supports" Relationship="Self.FK_Protocols_Supports" FromRole="Protocols" ToRole="Supports" />
+          <NavigationProperty Name="Supports1" Relationship="Self.FK_Protocols_Supports1" FromRole="Protocols" ToRole="Supports" />
+          <NavigationProperty Name="TypesOfProtocols" Relationship="Self.FK_Protocols_TypesOfProtocols" FromRole="Protocols" ToRole="TypesOfProtocols" />
+        </EntityType>
+        <EntityType Name="Providers">
+          <Key>
+            <PropertyRef Name="ProviderID" />
+          </Key>
+          <Property Name="ProviderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Providers" FromRole="Providers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ReasonsForSupports">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReasonForSupports" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductsToReasons" Relationship="Self.FK_ProductsToReasons_ReasonsForSupports" FromRole="ReasonsForSupports" ToRole="ProductsToReasons" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_Protocols_ReasonsForSupports" FromRole="ReasonsForSupports" ToRole="Protocols" />
+          <NavigationProperty Name="Supports" Relationship="Self.FK_Supports_ReasonsForSupports" FromRole="ReasonsForSupports" ToRole="Supports" />
+        </EntityType>
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ReportID" />
+          </Key>
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupportedID" Type="Int32" />
+          <Property Name="ReportDate" Type="DateTime" Precision="0" />
+          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GabayID" Type="Int32" />
+          <NavigationProperty Name="Responsibles" Relationship="Self.FK_Reports_Gabays" FromRole="Reports" ToRole="Responsibles" />
+          <NavigationProperty Name="Supporteds" Relationship="Self.FK_Reports_Supporters" FromRole="Reports" ToRole="Supporteds" />
+        </EntityType>
+        <EntityType Name="Responsibles">
+          <Key>
+            <PropertyRef Name="ResponsibleID" />
+          </Key>
+          <Property Name="ResponsibleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResponsibleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AllowingAccess" Type="Boolean" />
+          <Property Name="LoginPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResponsibleTelephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ResponsibleEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_Gabays" FromRole="Responsibles" ToRole="Reports" />
+          <NavigationProperty Name="Supports" Relationship="Self.FK_Supports_Gabays" FromRole="Responsibles" ToRole="Supports" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supporteds" Relationship="Self.FK_Supporters_Statuses" FromRole="Statuses" ToRole="Supporteds" />
+        </EntityType>
+        <EntityType Name="Supporteds">
+          <Key>
+            <PropertyRef Name="SupportedID" />
+          </Key>
+          <Property Name="SupportedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LayerID" Type="Int32" />
+          <Property Name="SupTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="SupportedIdentity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Layers" Relationship="Self.FK_Supporters_Layers" FromRole="Supporteds" ToRole="Layers" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_Protocols_Supporters" FromRole="Supporteds" ToRole="Protocols" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_Supporters" FromRole="Supporteds" ToRole="Reports" />
+          <NavigationProperty Name="Statuses" Relationship="Self.FK_Supporters_Statuses" FromRole="Supporteds" ToRole="Statuses" />
+          <NavigationProperty Name="Supports" Relationship="Self.FK_Supports_Supporteds" FromRole="Supporteds" ToRole="Supports" />
+        </EntityType>
+        <EntityType Name="Supports">
+          <Key>
+            <PropertyRef Name="SupportID" />
+          </Key>
+          <Property Name="SupportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupportedID" Type="Int32" />
+          <Property Name="SuppDate" Type="DateTime" Precision="0" />
+          <Property Name="ReasonID" Type="Int32" />
+          <Property Name="SumOfSupport" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResponsibleID" Type="Int32" />
+          <Property Name="Referrer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductsToSupports" Relationship="Self.FK_ProductsToSupports_Supports" FromRole="Supports" ToRole="ProductsToSupports" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_Protocols_Supports" FromRole="Supports" ToRole="Protocols" />
+          <NavigationProperty Name="Protocols1" Relationship="Self.FK_Protocols_Supports1" FromRole="Supports" ToRole="Protocols" />
+          <NavigationProperty Name="ReasonsForSupports" Relationship="Self.FK_Supports_ReasonsForSupports" FromRole="Supports" ToRole="ReasonsForSupports" />
+          <NavigationProperty Name="Responsibles" Relationship="Self.FK_Supports_Gabays" FromRole="Supports" ToRole="Responsibles" />
+          <NavigationProperty Name="Supporteds" Relationship="Self.FK_Supports_Supporteds" FromRole="Supports" ToRole="Supporteds" />
+        </EntityType>
+        <EntityType Name="SupportWay">
+          <Key>
+            <PropertyRef Name="SupportWayID" />
+          </Key>
+          <Property Name="SupportWayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentWay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoteToProtocol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BlackOrWhite" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TransactionsOnCoffer">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+          <Property Name="TypeOfExpensesAndIncome" Type="Int32" />
+          <Property Name="TransactionSum" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SupportID" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="BlackOrWhite" Type="Boolean" />
+          <NavigationProperty Name="AnnualSummary" Relationship="Self.FK_TransactionsOnCoffer_AnnualSummary" FromRole="TransactionsOnCoffer" ToRole="AnnualSummary" />
+          <NavigationProperty Name="TypesOfExpensesAndIncome" Relationship="Self.FK_TransactionsOnCoffer_TypesOfExpensesAndIncome" FromRole="TransactionsOnCoffer" ToRole="TypesOfExpensesAndIncome" />
+        </EntityType>
+        <EntityType Name="TypesOfExpensesAndIncome">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpensesOrIncome" Type="Boolean" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TransactionsOnCoffer" Relationship="Self.FK_TransactionsOnCoffer_TypesOfExpensesAndIncome" FromRole="TypesOfExpensesAndIncome" ToRole="TransactionsOnCoffer" />
+        </EntityType>
+        <EntityType Name="TypesOfProtocols">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_Protocols_TypesOfProtocols" FromRole="TypesOfProtocols" ToRole="Protocols" />
+        </EntityType>
+        <Association Name="FK_TransactionsOnCoffer_AnnualSummary">
+          <End Role="AnnualSummary" Type="Self.AnnualSummary" Multiplicity="0..1" />
+          <End Role="TransactionsOnCoffer" Type="Self.TransactionsOnCoffer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnnualSummary">
+              <PropertyRef Name="Year" />
+            </Principal>
+            <Dependent Role="TransactionsOnCoffer">
+              <PropertyRef Name="Year" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporters_Layers">
+          <End Role="Layers" Type="Self.Layers" Multiplicity="0..1" />
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Layers">
+              <PropertyRef Name="LayerID" />
+            </Principal>
+            <Dependent Role="Supporteds">
+              <PropertyRef Name="LayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Providers">
+          <End Role="Providers" Type="Self.Providers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers">
+              <PropertyRef Name="ProviderID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToReasons_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductsToReasons" Type="Self.ProductsToReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProdID" />
+            </Principal>
+            <Dependent Role="ProductsToReasons">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToSupports_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductsToSupports" Type="Self.ProductsToSupports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProdID" />
+            </Principal>
+            <Dependent Role="ProductsToSupports">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToReasons_ReasonsForSupports">
+          <End Role="ReasonsForSupports" Type="Self.ReasonsForSupports" Multiplicity="0..1" />
+          <End Role="ProductsToReasons" Type="Self.ProductsToReasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonsForSupports">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="ProductsToReasons">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductsToSupports_Supports">
+          <End Role="Supports" Type="Self.Supports" Multiplicity="0..1" />
+          <End Role="ProductsToSupports" Type="Self.ProductsToSupports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supports">
+              <PropertyRef Name="SupportID" />
+            </Principal>
+            <Dependent Role="ProductsToSupports">
+              <PropertyRef Name="SupportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_ReasonsForSupports">
+          <End Role="ReasonsForSupports" Type="Self.ReasonsForSupports" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonsForSupports">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="ReasonForProtocol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_Supporters">
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporteds">
+              <PropertyRef Name="SupportedID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="SupportedToProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_Supports">
+          <End Role="Supports" Type="Self.Supports" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supports">
+              <PropertyRef Name="SupportID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="ProtocolType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_Supports1">
+          <End Role="Supports" Type="Self.Supports" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supports">
+              <PropertyRef Name="SupportID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="SupportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protocols_TypesOfProtocols">
+          <End Role="TypesOfProtocols" Type="Self.TypesOfProtocols" Multiplicity="0..1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfProtocols">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Protocols">
+              <PropertyRef Name="ProtocolType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supports_ReasonsForSupports">
+          <End Role="ReasonsForSupports" Type="Self.ReasonsForSupports" Multiplicity="0..1" />
+          <End Role="Supports" Type="Self.Supports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReasonsForSupports">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="Supports">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Gabays">
+          <End Role="Responsibles" Type="Self.Responsibles" Multiplicity="0..1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsibles">
+              <PropertyRef Name="ResponsibleID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="GabayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Supporters">
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="0..1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporteds">
+              <PropertyRef Name="SupportedID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="SupportedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supports_Gabays">
+          <End Role="Responsibles" Type="Self.Responsibles" Multiplicity="0..1" />
+          <End Role="Supports" Type="Self.Supports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsibles">
+              <PropertyRef Name="ResponsibleID" />
+            </Principal>
+            <Dependent Role="Supports">
+              <PropertyRef Name="ResponsibleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supporters_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Supporteds">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supports_Supporteds">
+          <End Role="Supporteds" Type="Self.Supporteds" Multiplicity="0..1" />
+          <End Role="Supports" Type="Self.Supports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supporteds">
+              <PropertyRef Name="SupportedID" />
+            </Principal>
+            <Dependent Role="Supports">
+              <PropertyRef Name="SupportedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionsOnCoffer_TypesOfExpensesAndIncome">
+          <End Role="TypesOfExpensesAndIncome" Type="Self.TypesOfExpensesAndIncome" Multiplicity="0..1" />
+          <End Role="TransactionsOnCoffer" Type="Self.TransactionsOnCoffer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfExpensesAndIncome">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="TransactionsOnCoffer">
+              <PropertyRef Name="TypeOfExpensesAndIncome" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InstitutionalSupportFundEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnnualSummary" EntityType="Self.AnnualSummary" />
+          <EntitySet Name="Layers" EntityType="Self.Layers" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="ProductsToReasons" EntityType="Self.ProductsToReasons" />
+          <EntitySet Name="ProductsToSupports" EntityType="Self.ProductsToSupports" />
+          <EntitySet Name="Protocols" EntityType="Self.Protocols" />
+          <EntitySet Name="Providers" EntityType="Self.Providers" />
+          <EntitySet Name="ReasonsForSupports" EntityType="Self.ReasonsForSupports" />
+          <EntitySet Name="Reports" EntityType="Self.Reports" />
+          <EntitySet Name="Responsibles" EntityType="Self.Responsibles" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" />
+          <EntitySet Name="Supporteds" EntityType="Self.Supporteds" />
+          <EntitySet Name="Supports" EntityType="Self.Supports" />
+          <EntitySet Name="SupportWay" EntityType="Self.SupportWay" />
+          <EntitySet Name="TransactionsOnCoffer" EntityType="Self.TransactionsOnCoffer" />
+          <EntitySet Name="TypesOfExpensesAndIncome" EntityType="Self.TypesOfExpensesAndIncome" />
+          <EntitySet Name="TypesOfProtocols" EntityType="Self.TypesOfProtocols" />
+          <AssociationSet Name="FK_TransactionsOnCoffer_AnnualSummary" Association="Self.FK_TransactionsOnCoffer_AnnualSummary">
+            <End Role="AnnualSummary" EntitySet="AnnualSummary" />
+            <End Role="TransactionsOnCoffer" EntitySet="TransactionsOnCoffer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporters_Layers" Association="Self.FK_Supporters_Layers">
+            <End Role="Layers" EntitySet="Layers" />
+            <End Role="Supporteds" EntitySet="Supporteds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Providers" Association="Self.FK_Products_Providers">
+            <End Role="Providers" EntitySet="Providers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToReasons_Products" Association="Self.FK_ProductsToReasons_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductsToReasons" EntitySet="ProductsToReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToSupports_Products" Association="Self.FK_ProductsToSupports_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductsToSupports" EntitySet="ProductsToSupports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToReasons_ReasonsForSupports" Association="Self.FK_ProductsToReasons_ReasonsForSupports">
+            <End Role="ReasonsForSupports" EntitySet="ReasonsForSupports" />
+            <End Role="ProductsToReasons" EntitySet="ProductsToReasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductsToSupports_Supports" Association="Self.FK_ProductsToSupports_Supports">
+            <End Role="Supports" EntitySet="Supports" />
+            <End Role="ProductsToSupports" EntitySet="ProductsToSupports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_ReasonsForSupports" Association="Self.FK_Protocols_ReasonsForSupports">
+            <End Role="ReasonsForSupports" EntitySet="ReasonsForSupports" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_Supporters" Association="Self.FK_Protocols_Supporters">
+            <End Role="Supporteds" EntitySet="Supporteds" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_Supports" Association="Self.FK_Protocols_Supports">
+            <End Role="Supports" EntitySet="Supports" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_Supports1" Association="Self.FK_Protocols_Supports1">
+            <End Role="Supports" EntitySet="Supports" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protocols_TypesOfProtocols" Association="Self.FK_Protocols_TypesOfProtocols">
+            <End Role="TypesOfProtocols" EntitySet="TypesOfProtocols" />
+            <End Role="Protocols" EntitySet="Protocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supports_ReasonsForSupports" Association="Self.FK_Supports_ReasonsForSupports">
+            <End Role="ReasonsForSupports" EntitySet="ReasonsForSupports" />
+            <End Role="Supports" EntitySet="Supports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Gabays" Association="Self.FK_Reports_Gabays">
+            <End Role="Responsibles" EntitySet="Responsibles" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Supporters" Association="Self.FK_Reports_Supporters">
+            <End Role="Supporteds" EntitySet="Supporteds" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supports_Gabays" Association="Self.FK_Supports_Gabays">
+            <End Role="Responsibles" EntitySet="Responsibles" />
+            <End Role="Supports" EntitySet="Supports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supporters_Statuses" Association="Self.FK_Supporters_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Supporteds" EntitySet="Supporteds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supports_Supporteds" Association="Self.FK_Supports_Supporteds">
+            <End Role="Supporteds" EntitySet="Supporteds" />
+            <End Role="Supports" EntitySet="Supports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionsOnCoffer_TypesOfExpensesAndIncome" Association="Self.FK_TransactionsOnCoffer_TypesOfExpensesAndIncome">
+            <End Role="TypesOfExpensesAndIncome" EntitySet="TypesOfExpensesAndIncome" />
+            <End Role="TransactionsOnCoffer" EntitySet="TransactionsOnCoffer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InstitutionalSupportFundModelStoreContainer" CdmEntityContainer="InstitutionalSupportFundEntities">
+          <EntitySetMapping Name="AnnualSummary">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.AnnualSummary">
+              <MappingFragment StoreEntitySet="AnnualSummary">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+                <ScalarProperty Name="CurrentWhiteBalance" ColumnName="CurrentWhiteBalance" />
+                <ScalarProperty Name="CurrentBlackBalance" ColumnName="CurrentBlackBalance" />
+                <ScalarProperty Name="TerminationBalance" ColumnName="TerminationBalance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Layers">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Layers">
+              <MappingFragment StoreEntitySet="Layers">
+                <ScalarProperty Name="LayerID" ColumnName="LayerID" />
+                <ScalarProperty Name="Layer" ColumnName="Layer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="providerID" ColumnName="providerID" />
+                <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+                <ScalarProperty Name="SupportWayID" ColumnName="SupportWayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsToReasons">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.ProductsToReasons">
+              <MappingFragment StoreEntitySet="ProductsToReasons">
+                <ScalarProperty Name="ProdToReasonID" ColumnName="ProdToReasonID" />
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsToSupports">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.ProductsToSupports">
+              <MappingFragment StoreEntitySet="ProductsToSupports">
+                <ScalarProperty Name="ProdsToSupportsID" ColumnName="ProdsToSupportsID" />
+                <ScalarProperty Name="SupportID" ColumnName="SupportID" />
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="NumCheckOrCupon" ColumnName="NumCheckOrCupon" />
+                <ScalarProperty Name="InvoiceReceived" ColumnName="InvoiceReceived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Protocols">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Protocols">
+              <MappingFragment StoreEntitySet="Protocols">
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+                <ScalarProperty Name="ProtocolType" ColumnName="ProtocolType" />
+                <ScalarProperty Name="SupportedToProtocolID" ColumnName="SupportedToProtocolID" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="ReasonForProtocol" ColumnName="ReasonForProtocol" />
+                <ScalarProperty Name="SupportID" ColumnName="SupportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Providers">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Providers">
+              <MappingFragment StoreEntitySet="Providers">
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReasonsForSupports">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.ReasonsForSupports">
+              <MappingFragment StoreEntitySet="ReasonsForSupports">
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="ReasonForSupports" ColumnName="ReasonForSupports" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Reports">
+              <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="SupportedID" ColumnName="SupportedID" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="GabayID" ColumnName="GabayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Responsibles">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Responsibles">
+              <MappingFragment StoreEntitySet="Responsibles">
+                <ScalarProperty Name="ResponsibleID" ColumnName="ResponsibleID" />
+                <ScalarProperty Name="ResponsibleName" ColumnName="ResponsibleName" />
+                <ScalarProperty Name="AllowingAccess" ColumnName="AllowingAccess" />
+                <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+                <ScalarProperty Name="ResponsibleTelephone" ColumnName="ResponsibleTelephone" />
+                <ScalarProperty Name="ResponsibleEmail" ColumnName="ResponsibleEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Statuses">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="statusName" ColumnName="statusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supporteds">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Supporteds">
+              <MappingFragment StoreEntitySet="Supporteds">
+                <ScalarProperty Name="SupportedID" ColumnName="SupportedID" />
+                <ScalarProperty Name="SupFirstName" ColumnName="SupFirstName" />
+                <ScalarProperty Name="SupLastName" ColumnName="SupLastName" />
+                <ScalarProperty Name="LayerID" ColumnName="LayerID" />
+                <ScalarProperty Name="SupTelephone" ColumnName="SupTelephone" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="SupportedIdentity" ColumnName="SupportedIdentity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supports">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.Supports">
+              <MappingFragment StoreEntitySet="Supports">
+                <ScalarProperty Name="SupportID" ColumnName="SupportID" />
+                <ScalarProperty Name="SupportedID" ColumnName="SupportedID" />
+                <ScalarProperty Name="SuppDate" ColumnName="SuppDate" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="SumOfSupport" ColumnName="SumOfSupport" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="ResponsibleID" ColumnName="ResponsibleID" />
+                <ScalarProperty Name="Referrer" ColumnName="Referrer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportWay">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.SupportWay">
+              <MappingFragment StoreEntitySet="SupportWay">
+                <ScalarProperty Name="SupportWayID" ColumnName="SupportWayID" />
+                <ScalarProperty Name="PaymentWay" ColumnName="PaymentWay" />
+                <ScalarProperty Name="NoteToProtocol" ColumnName="NoteToProtocol" />
+                <ScalarProperty Name="BlackOrWhite" ColumnName="BlackOrWhite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionsOnCoffer">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.TransactionsOnCoffer">
+              <MappingFragment StoreEntitySet="TransactionsOnCoffer">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TypeOfExpensesAndIncome" ColumnName="TypeOfExpensesAndIncome" />
+                <ScalarProperty Name="TransactionSum" ColumnName="TransactionSum" />
+                <ScalarProperty Name="SupportID" ColumnName="SupportID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="BlackOrWhite" ColumnName="BlackOrWhite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesOfExpensesAndIncome">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.TypesOfExpensesAndIncome">
+              <MappingFragment StoreEntitySet="TypesOfExpensesAndIncome">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ExpensesOrIncome" ColumnName="ExpensesOrIncome" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesOfProtocols">
+            <EntityTypeMapping TypeName="InstitutionalSupportFundModel.TypesOfProtocols">
+              <MappingFragment StoreEntitySet="TypesOfProtocols">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ProtocolType" ColumnName="ProtocolType" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dal.AnnualSummaryDAL">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAAAAEAAAEAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>AnnualSummaryDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.LayersDAL">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAA=</HashCode>
+      <FileName>LayersDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.sysdiagrams">
+    <Position X="3" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>sysdiagrams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ProductsDAL">
+    <Position X="12.25" Y="2.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAACAAAAIAAAAACAAAAAAAEEAAAAAAAAAAA=</HashCode>
+      <FileName>ProductsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ProductsToReasonsDAL">
+    <Position X="4.75" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAABAAAAAAAAAAAAABEAAAAAAAAABgAAAAA=</HashCode>
+      <FileName>ProductsToReasonsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ProductsToSupportsDAL">
+    <Position X="7.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAgAHBAAAAAAwAIgAAAAA=</HashCode>
+      <FileName>ProductsToSupportsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ProtocolsDAL">
+    <Position X="10" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACgQAAAoEAAAAAAQAABAABAAQAAQgACAAA=</HashCode>
+      <FileName>ProtocolsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ProvidersDAL">
+    <Position X="0.5" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAEAAAAQAEAAAAAAAAAAAAAAAAAAgAQAAA=</HashCode>
+      <FileName>ProvidersDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ReasonsForSupportsDAL">
+    <Position X="4.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAIAAAAAAAAAKBABAIAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReasonsForSupportsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ReportsDAL">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAQAgAgABAACAARAAAQAAIAAAACCAAAAAAEAAAAA=</HashCode>
+      <FileName>ReportsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.ResponsiblesDAL">
+    <Position X="9.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAgAAAABAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ResponsiblesDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.StatusesDAL">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>StatusesDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.SupportedsDAL">
+    <Position X="12.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAIAAAAAjAAAAAAAAAAAAA=</HashCode>
+      <FileName>SupportedsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.SupportsDAL">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgEAAAAAAAAEAgAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SupportsDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.SupportWayDAL">
+    <Position X="4.75" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAIAAAAQAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SupportWayDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.TransactionsOnCofferDAL">
+    <Position X="0.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIABAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAA=</HashCode>
+      <FileName>TransactionsOnCofferDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dal.TypesOfExpensesAndIncomeDAL">
+    <Position X="11.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>TypesOfExpensesAndIncomeDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

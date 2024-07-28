@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bll.AnnualSummaryBLL">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAEAACAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>AnnualSammuryBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.LayersBLL">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAA=</HashCode>
+      <FileName>LayersBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ProductsBLL">
+    <Position X="5.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAACAAAAIAAAEACAAAAAAAEAAAAAAAAAAgA=</HashCode>
+      <FileName>ProductsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ProductsToReasonsBLL">
+    <Position X="13" Y="3.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAJAAAAAAAAAQAAAAAEAAEAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>productsToReasonsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.prod">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAlAAAAAAAAAAA=</HashCode>
+      <FileName>ProductsToSupportsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ProductsToSupportsBLL">
+    <Position X="5.25" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAABAAAAAAAAAAAAAAAADAAAAAAAgABAAAAAA=</HashCode>
+      <FileName>ProductsToSupportsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ProtocolsBLL">
+    <Position X="3" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ProtocolsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ProvidersBLL">
+    <Position X="8.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAEAAAAAAAAAAAEAAAAAAgAAAAA=</HashCode>
+      <FileName>ProvidersBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ReasonsForSupportsBLL">
+    <Position X="10.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAIAAAAABAAAAAAAAABAAA=</HashCode>
+      <FileName>ReasonsForSupportsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ReportsBLL">
+    <Position X="0.5" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAQBAAAQIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReportsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.ResponsiblesBLL">
+    <Position X="5.25" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAIAAIAAAABgAAAAAQAAAAAAAAAgAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ResponsiblesBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.StatusesBLL">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>StatusesBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.SupportedsBLL">
+    <Position X="3" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAIAEAAAABAAAAAAAAABAAAAAAAAAQA=</HashCode>
+      <FileName>SupportedsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.SupportsBLL">
+    <Position X="0.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAgAAAAAAAAAAAAAIAANAAAAAAAAAAI=</HashCode>
+      <FileName>SupportsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.SupportWayBLL">
+    <Position X="10" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAACAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SupportWayBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.TransactionsOnCofferBLL">
+    <Position X="13" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAIAAAAgAAAgAAAAAAEAAAACAEKCACAAAAA=</HashCode>
+      <FileName>TransactionsOnCofferBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bll.TypesOfExpensesAndIncomeBLL">
+    <Position X="10" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQABAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQAQ=</HashCode>
+      <FileName>TypesOfExpensesAndIncomeBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
